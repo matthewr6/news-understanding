@@ -5,6 +5,10 @@ import requests
 import os
 import regex as re
 
+import spacy
+nlp = spacy.load("en_core_web_sm")
+
+
 from os.path import join, dirname, isfile
 path = dirname(__file__)
 
@@ -18,11 +22,18 @@ def should_include_word(word):
 min_len = 4
 
 def parse_article(article):
-    text = article['title'] + article.get('description', '')
-    text = re.sub("\p{P}+", "", text).lower()
-    text = text.split(' ')
-    text = filter(should_include_word, text)
-    return list(text)
+    text = article['title']
+    if 'description' in article and article['description']:
+        text += ' ' + article['description']
+
+    doc = nlp(text)
+    # print([t for t in doc])
+    tokens = [token.lemma_ for token in doc if 'NN' in token.tag_]
+    return tokens
+    # text = re.sub("\p{P}+", "", text).lower()
+    # text = text.split(' ')
+    # text = filter(should_include_word, text)
+    # return list(text)
 
 
 parsed_data = {}
