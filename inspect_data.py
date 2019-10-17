@@ -7,7 +7,7 @@ import os
 from os.path import join, dirname, isfile
 path = dirname(__file__)
 
-with open(join(path, 'news.json'), 'r') as f:
+with open(join(path, 'raw_data/news.json'), 'r') as f:
     data = json.load(f)
 
 total = 0
@@ -23,5 +23,5 @@ print('Avg:', total / count)
 
 print('')
 
-with open(join(path, 'news_flat.json'), 'r') as f:
-    print(len(json.load(f)))
+# with open(join(path, 'news_flat.json'), 'r') as f:
+#     print(len(json.load(f)))

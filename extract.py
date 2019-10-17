@@ -12,7 +12,7 @@ nlp = spacy.load("en_core_web_sm")
 from os.path import join, dirname, isfile
 path = dirname(__file__)
 
-with open(join(path, 'news.json'), 'r') as f:
+with open(join(path, 'raw_data/news.json'), 'r') as f:
     data = json.load(f)
 
 
@@ -22,11 +22,12 @@ def should_include_word(word):
 min_len = 4
 
 def parse_article(article):
-    text = article['title']
+    text = ''
+    if 'title' in article and article['title']:
+            text = article['title']
     if 'description' in article and article['description']:
-        text += ' ' + article['description']
-
-    doc = nlp(text)
+            text += ' ' + article['description']
+    doc = nlp(text.strip())
     # print([t for t in doc])
     tokens = [token.lemma_ for token in doc if 'NN' in token.tag_]
     return tokens
@@ -42,5 +43,5 @@ for date in data:
     parsed_data[date] = [parse_article(a) for a in articles]
 
 
-with open(join(path, 'news_text.json'), 'w') as f:
+with open(join(path, 'parsed_data/news_text.json'), 'w') as f:
     json.dump(parsed_data, f, ensure_ascii=False)
