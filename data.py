@@ -32,6 +32,7 @@ QUERIES = [
   ('politics saudi', 'saudi.json'),
   ('politics trump', 'trump.json'),
   ('politics medicare', 'medicare.json'),
+  ('politics middle east', 'middle_east.json'),
   ('politics brexit', 'brexit.json'),
 ]
 

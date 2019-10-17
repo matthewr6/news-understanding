@@ -3,17 +3,20 @@ import numpy as np
 import json
 import requests
 import os
+import glob
 
 from os.path import join, dirname, isfile
-path = dirname(__file__)
+base_path = dirname(__file__)
 
-with open(join(path, 'parsed_data/news_text.json'), 'r') as f:
-    data = json.load(f)
+for path in glob.glob('parsed_data/*_text.json'):
+    basename = '_'.join(os.path.basename(path).split('.')[0].split('_')[:-1])
+    with open(join(base_path, f'parsed_data/{basename}_text.json'), 'r') as f:
+        data = json.load(f)
 
-parsed_data = []
+    parsed_data = []
 
-for date in data:
-    parsed_data += data[date]
+    for date in data:
+        parsed_data += data[date]
 
-with open(join(path, 'parsed_data/news_flat.json'), 'w') as f:
-    json.dump(parsed_data, f, ensure_ascii=False)
+    with open(join(base_path, f'parsed_data/{basename}_flat.json'), 'w') as f:
+        json.dump(parsed_data, f, ensure_ascii=False)
