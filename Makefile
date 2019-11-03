@@ -2,15 +2,16 @@
 # scripts.
 
 # Download news data from newsapi.org
-rawdata:
-	python3 data.py
+dataset:
+	python3 datasets/pull.py
+	python3 datasets/compile.py
+	python3 datasets/flatten.py
 
-# Preprocess data into format that can be fed into model
-pipeline:
-	python3 extract.py
-	python3 flatten.py
+featurize:
+	python3 featurizers/featurize.py
 
-# Data inspection/visualization tools
-inspect:
-	python3 inspect_data.py
-	python3 histogram.py
+model:
+	python3 models/model.py
+
+analyze:
+	python3 analyzers/analyze.py
