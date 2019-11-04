@@ -6,10 +6,6 @@ import os
 from os.path import join, dirname, isfile
 base_path = dirname(__file__)
 
-# if len(sys.argv) == 1:
-#     print('Expecting name of featurizer.')
-#     sys.exit()
-
 featurizer_name = 'spacy_nouns'
 model_name = os.path.basename(__file__).split('.')[0]
 
@@ -31,17 +27,18 @@ if __name__ == '__main__':
 
 lda = LdaModel.load(join(base_path, f'models/{model_name}/model'))
 
-def predict(text):
-    doc_bow = id2word.doc2bow(text.lower().split(' '))
-    topics = sorted(lda[doc_bow], key=lambda x:x[1],reverse=True)
-    return topics[0][0]
+def predict(texts):
+    ret = []
+    for text in texts:
+        doc_bow = id2word.doc2bow(text.lower().split(' '))
+        topics = sorted(lda[doc_bow], key=lambda x:x[1],reverse=True)
+        ret.append(topics[0][0])
+    return ret
 
 def get_topics():
     lda_topic_words = []
     for i in range(num_topics):
-        # lda_topic_words.append([w[0] for w in lda.show_topic(i, topn=top_n_words)])
         lda_topic_words += [w[0] for w in lda.show_topic(i, topn=top_n_words)]
-    # return lda_topic_words
     return set(lda_topic_words)
 
 topics = get_topics()

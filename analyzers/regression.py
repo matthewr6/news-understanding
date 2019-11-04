@@ -42,9 +42,7 @@ spec.loader.exec_module(model)
 data_sentences = [' '.join(text).lower() for text in model.data]
 
 # get true labels
-y = []
-for d in data_sentences:
-    y.append(model.predict(d))
+y = model.predict(data_sentences)
 
 def intersect(a, b):
     return list(set(a) & set(b))
