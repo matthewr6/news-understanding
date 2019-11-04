@@ -7,11 +7,12 @@ dataset:
 	python3 datasets/compile.py
 	python3 datasets/flatten.py
 
-featurize:
-	python3 featurizers/featurize.py
+# add custom args or whatever for these
+featurize/%:
+	python3 featurizers/$*.py
 
-model:
-	python3 models/model.py
+model/%:
+	python3 models/$*.py
 
-analyze:
-	python3 analyzers/analyze.py
+analyze/%:
+	python3 analyzers/regression.py $*
