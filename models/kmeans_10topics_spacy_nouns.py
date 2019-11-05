@@ -4,6 +4,7 @@ import pickle
 from sklearn.feature_extraction.text import CountVectorizer
 import json
 import os
+import collections
 import numpy as np
 from os.path import join, dirname, isfile
 base_path = dirname(__file__)
@@ -29,7 +30,6 @@ if False and __name__ == '__main__':
     os.makedirs(join(base_path, f'models/{model_name}'), exist_ok=True)
     with open(join(base_path, f'models/{model_name}/model'), 'wb') as f:
         pickle.dump(model, f)
-    # print(set(KMeans(eps=0.01).fit_predict(X)))
 
 with open(join(base_path, f'models/{model_name}/model'), 'rb') as f:
     model = pickle.load(f)
@@ -38,12 +38,27 @@ def predict(text):
     X = vectorizer.transform(text)
     return model.predict(X)
 
-# def get_topics():
-#     lda_topic_words = []
-#     for i in range(num_topics):
-#         # lda_topic_words.append([w[0] for w in lda.show_topic(i, topn=top_n_words)])
-#         lda_topic_words += [w[0] for w in lda.show_topic(i, topn=top_n_words)]
-#     # return lda_topic_words
-#     return set(lda_topic_words)
+def get_topics():
+    topics = {}
+    y = model.predict(vectorizer.transform([' '.join(d) for d in data]))
+    for idx, label in enumerate(y):
+        if label not in topics:
+            topics[label] = collections.defaultdict(int)
+        for word in data[idx]:
+            topics[label][word] += 1
+    topic_words = []
+    for label, words in topics.items():
+        c = collections.Counter(words)
+        topic_words += [w[0] for w in c.most_common(top_n_words)]
+    return set(topic_words)
 
-# topics = get_topics()
+topics = None
+if os.path.exists(join(base_path, f'models/{model_name}/topics')):
+    with open(join(base_path, f'models/{model_name}/topics'), 'rb') as f:
+        topics = pickle.load(f)
+else:
+    print('Calculating topic keywords...')
+    topics = get_topics()
+    with open(join(base_path, f'models/{model_name}/topics'), 'wb') as f:
+        pickle.dump(topics, f)
+
