@@ -41,4 +41,13 @@ def get_topics():
         lda_topic_words += [w[0] for w in lda.show_topic(i, topn=top_n_words)]
     return set(lda_topic_words)
 
+def get_weighted_topics():
+    lda_topic_words = []
+    for i in range(num_topics):
+        topic_keywords = lda.show_topic(i, topn=top_n_words)
+        lda_topic_words += [w[0] for w in lda.show_topic(i, topn=top_n_words)]
+    return set(lda_topic_words)
+
 topics = get_topics()
+
+# get_weighted_topics()
