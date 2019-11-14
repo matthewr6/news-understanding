@@ -23,7 +23,7 @@ vectorizer = CountVectorizer()
 
 vectorizer.fit([' '.join(d) for d in data])
 
-if False and __name__ == '__main__':
+if __name__ == '__main__':
     print('Creating model')
     X = vectorizer.transform([' '.join(d) for d in data])
     model = KMeans(n_clusters=num_topics, max_iter=500).fit(X)
@@ -83,7 +83,7 @@ def get_weighted_topics():
     return normalized_terms
 
 topics = None
-if os.path.exists(join(base_path, f'models/{model_name}/topics')):
+if os.path.exists(join(base_path, f'models/{model_name}/topics')) and __name__ != '__main__':
     with open(join(base_path, f'models/{model_name}/topics'), 'rb') as f:
         topics = pickle.load(f)
 else:
@@ -93,11 +93,11 @@ else:
         pickle.dump(topics, f)
 
 weighted_topics = None
-if False and os.path.exists(join(base_path, f'models/{model_name}/weighted_topics')):
+if os.path.exists(join(base_path, f'models/{model_name}/weighted_topics')) and __name__ != '__main__':
     with open(join(base_path, f'models/{model_name}/weighted_topics'), 'rb') as f:
         weighted_topics = pickle.load(f)
 else:
-    print('Calculating topic keywords...')
+    print('Calculating topic weighted keywords...')
     weighted_topics = get_weighted_topics()
     with open(join(base_path, f'models/{model_name}/weighted_topics'), 'wb') as f:
         pickle.dump(weighted_topics, f)

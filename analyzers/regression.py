@@ -49,6 +49,8 @@ def intersect(a, b):
 
 stripped_data = [' '.join(intersect(text.split(' '), model.topics)) for idx, text in enumerate(data_sentences)]
 
+# use weighted topics instead so stuff like trump is less relevant?
+
 # get featurized data
 vectorizer = CountVectorizer()
 X_base = vectorizer.fit_transform(data_sentences)
@@ -61,7 +63,15 @@ lr = LogisticRegression(multi_class='auto', solver='lbfgs', max_iter=1000)
 # predict
 bayes_score = cross_val_score(bayes, X_base, y, cv=5, scoring='accuracy')
 lr_score = cross_val_score(lr, X_base, y, cv=5, scoring='accuracy')
-print('featurized data', np.mean(bayes_score), np.mean(lr_score))
+print('logistic regression')
+print('featurized data', np.mean(lr_score))#, np.mean(bayes_score))
+_lr_score = lr_score
 bayes_score = cross_val_score(bayes, X_keywords, y, cv=5, scoring='accuracy')
 lr_score = cross_val_score(lr, X_keywords, y, cv=5, scoring='accuracy')
-print('keywords only', np.mean(bayes_score), np.mean(lr_score))
+print('keywords only', np.mean(lr_score))#, np.mean(bayes_score))
+
+print('overall score - keywords score', np.mean(_lr_score) - np.mean(lr_score))
+
+print('terms')
+# get terms on a per topic basis
+# print(model.topics)

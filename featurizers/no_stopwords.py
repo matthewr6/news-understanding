@@ -18,8 +18,10 @@ base_path = dirname(__file__)
 
 table = str.maketrans('', '', string.punctuation)
 
+pattern = re.compile('([^\s\w]|_)+')
+
 def parse_article(text):
-    stripped_text = text.translate(table).strip().lower().split(' ')
+    stripped_text = pattern.sub('', text).strip().lower().split(' ')
     return [t for t in stripped_text if t not in stop_words]
 
 with open(join(base_path, '../datasets/data.json'), 'r') as f:
