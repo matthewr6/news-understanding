@@ -7,7 +7,6 @@ import regex as re
 
 import nltk
 from nltk.corpus import stopwords
-import string
 
 stop_words = set(stopwords.words('english')) 
 
@@ -15,8 +14,6 @@ featurizer_name = os.path.basename(__file__).split('.')[0]
 
 from os.path import join, dirname, isfile
 base_path = dirname(__file__)
-
-table = str.maketrans('', '', string.punctuation)
 
 pattern = re.compile('([^\s\w]|_)+')
 

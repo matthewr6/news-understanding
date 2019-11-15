@@ -1,0 +1,72 @@
+python3 analyzers/regression.py kmeans_10topics_simple
+Analyzing kmeans_10topics_simple
+weighted = False
+Beginning cross validation on logistic regression...
+    Completed iter 1/10
+    Completed iter 2/10
+    Completed iter 3/10
+    Completed iter 4/10
+    Completed iter 5/10
+    Completed iter 6/10
+    Completed iter 7/10
+    Completed iter 8/10
+    Completed iter 9/10
+    Completed iter 10/10
+featurized data 0.9615721790841392
+keywords only 0.9753535862657787
+overall score - keywords score -0.01378140718163956
+terms
+python3 analyzers/regression.py kmeans_10topics_no_stopwords
+Analyzing kmeans_10topics_no_stopwords
+weighted = False
+Beginning cross validation on logistic regression...
+    Completed iter 1/10
+    Completed iter 2/10
+    Completed iter 3/10
+    Completed iter 4/10
+    Completed iter 5/10
+    Completed iter 6/10
+    Completed iter 7/10
+    Completed iter 8/10
+    Completed iter 9/10
+    Completed iter 10/10
+featurized data 0.9652043858579199
+keywords only 0.9744106977165317
+overall score - keywords score -0.00920631185861176
+terms
+python3 analyzers/regression.py kmeans_10topics_spacy_nouns
+Analyzing kmeans_10topics_spacy_nouns
+weighted = False
+Beginning cross validation on logistic regression...
+    Completed iter 1/10
+    Completed iter 2/10
+    Completed iter 3/10
+    Completed iter 4/10
+    Completed iter 5/10
+    Completed iter 6/10
+    Completed iter 7/10
+    Completed iter 8/10
+    Completed iter 9/10
+    Completed iter 10/10
+featurized data 0.9707651380907772
+keywords only 0.9771827390549097
+overall score - keywords score -0.006417600964132464
+terms
+python3 analyzers/regression.py kmeans_10topics_median_word_length
+Analyzing kmeans_10topics_median_word_length
+weighted = False
+Beginning cross validation on logistic regression...
+    Completed iter 1/10
+    Completed iter 2/10
+    Completed iter 3/10
+    Completed iter 4/10
+    Completed iter 5/10
+    Completed iter 6/10
+    Completed iter 7/10
+    Completed iter 8/10
+    Completed iter 9/10
+    Completed iter 10/10
+featurized data 0.9787762501697032
+keywords only 0.9833655102903027
+overall score - keywords score -0.00458926012059957
+terms

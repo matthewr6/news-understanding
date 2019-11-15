@@ -1,0 +1,57 @@
+python3 analyzers/regression.py kmeans_10topics_simple
+Analyzing kmeans_10topics_simple
+weighted = True
+Beginning cross validation on logistic regression...
+    Completed iter 1/10
+    Completed iter 2/10
+    Completed iter 3/10
+    Completed iter 4/10
+    Completed iter 5/10
+    Completed iter 6/10
+    Completed iter 7/10
+    Completed iter 8/10
+    Completed iter 9/10
+    Completed iter 10/10
+featurized data 0.9617967074520165
+keywords only 0.9738131001106447
+overall score - keywords score -0.012016392658628194
+terms
+python3 analyzers/regression.py kmeans_10topics_no_stopwords
+Analyzing kmeans_10topics_no_stopwords
+weighted = True
+Beginning cross validation on logistic regression...
+    Completed iter 1/10
+    Completed iter 2/10
+    Completed iter 3/10
+    Completed iter 4/10
+    Completed iter 5/10
+    Completed iter 6/10
+    Completed iter 7/10
+    Completed iter 8/10
+    Completed iter 9/10
+    Completed iter 10/10
+featurized data 0.9654694142480451
+keywords only 0.9745753742025112
+overall score - keywords score -0.009105959954466059
+terms
+python3 analyzers/regression.py kmeans_10topics_spacy_nouns
+Analyzing kmeans_10topics_spacy_nouns
+weighted = True
+Beginning cross validation on logistic regression...
+    Completed iter 1/10
+    Completed iter 2/10
+    Completed iter 3/10
+    Completed iter 4/10
+    Completed iter 5/10
+    Completed iter 6/10
+    Completed iter 7/10
+    Completed iter 8/10
+    Completed iter 9/10
+    Completed iter 10/10
+featurized data 0.9711225226905165
+keywords only 0.9788051439467078
+overall score - keywords score -0.0076826212561913465
+terms
+python3 analyzers/regression.py kmeans_10topics_median_word_length
+Analyzing kmeans_10topics_median_word_length
+Makefile:39: recipe for target 'analyze/all' failed

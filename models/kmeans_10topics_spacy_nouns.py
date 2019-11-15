@@ -47,10 +47,16 @@ def get_topics():
         for word in data[idx]:
             topics[label][word] += 1
     topic_words = []
+    topic_keywords = {}
     for label, words in topics.items():
+        if label not in topic_keywords:
+            topic_keywords[label] = set()
         c = collections.Counter(words)
-        topic_words += [w[0] for w in c.most_common(top_n_words)]
-    return set(topic_words)
+        # topic_words += [w[0] for w in c.most_common(top_n_words)]
+        for w in c.most_common(top_n_words):
+            topic_words.append(w[0])
+            topic_keywords[label].add(w[0])
+    return (set(topic_words), topic_keywords)
 
 def normalize_dict(d):
     total = 0
@@ -59,6 +65,8 @@ def normalize_dict(d):
     for k in d:
         d[k] /= total
     return d
+
+asdf = 100
 
 # could multiply by inverse of total?
 def get_weighted_topics():
@@ -73,32 +81,40 @@ def get_weighted_topics():
     totals = collections.defaultdict(float)
     for label, words in topics.items():
         c = collections.Counter(words)
-        normalized_terms[label] = normalize_dict(dict(c.most_common(top_n_words)))
+        normalized_terms[label] = normalize_dict(dict(c.most_common(asdf)))
         for term, proportion in normalized_terms[label].items():
             totals[term] += proportion
     for label, terms in normalized_terms.items():
         for term, value in terms.items():
             normalized_terms[label][term] *= value / totals[term]
-    # combine them somehow into a single dictionary?
-    return normalized_terms
+    final_terms = []
+    topic_keywords = {}
+    for label, words in normalized_terms.items():
+        if label not in topic_keywords:
+            topic_keywords[label] = set()
+        c = collections.Counter(words)
+        for w in c.most_common(top_n_words):
+            final_terms.append(w[0])
+            topic_keywords[label].add(w[0])
+    return (set(final_terms), topic_keywords)
 
 topics = None
 if os.path.exists(join(base_path, f'models/{model_name}/topics')) and __name__ != '__main__':
     with open(join(base_path, f'models/{model_name}/topics'), 'rb') as f:
-        topics = pickle.load(f)
+        topics, topic_keywords = pickle.load(f)
 else:
     print('Calculating topic keywords...')
-    topics = get_topics()
+    topics, topic_keywords = get_topics()
     with open(join(base_path, f'models/{model_name}/topics'), 'wb') as f:
-        pickle.dump(topics, f)
+        pickle.dump((topics, topic_keywords), f)
 
 weighted_topics = None
 if os.path.exists(join(base_path, f'models/{model_name}/weighted_topics')) and __name__ != '__main__':
     with open(join(base_path, f'models/{model_name}/weighted_topics'), 'rb') as f:
-        weighted_topics = pickle.load(f)
+        weighted_topics, weighted_topic_keywords = pickle.load(f)
 else:
     print('Calculating topic weighted keywords...')
-    weighted_topics = get_weighted_topics()
+    weighted_topics, weighted_topic_keywords = get_weighted_topics()
     with open(join(base_path, f'models/{model_name}/weighted_topics'), 'wb') as f:
-        pickle.dump(weighted_topics, f)
+        pickle.dump((weighted_topics, weighted_topic_keywords), f)
 
