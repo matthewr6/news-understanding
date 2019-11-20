@@ -15,11 +15,12 @@ def raw_count_topics(groupings):
     cluster_words = {}
     for label, words in topics.items():
         if label not in cluster_words:
-            cluster_words[label] = set()
+            cluster_words[label] = []
         c = collections.Counter(words)
         for w in c.most_common(top_n_words):
             all_key_words.append(w[0])
-            cluster_words[label].add(w[0])
-    for label in cluster_words:
-        cluster_words[label] = list(cluster_words[label])
+            if w[0] not in cluster_words[label]:
+                cluster_words[label].append(w[0])
+    # for label in cluster_words:
+    #     cluster_words[label] = list(cluster_words[label])
     return (set(all_key_words), cluster_words)
