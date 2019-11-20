@@ -33,7 +33,7 @@ if len(sys.argv) < 2:
 model_name = sys.argv[1]
 
 # import stuff from correct file
-# specifically featurizer_name, predict, and topics
+# specifically featurizer_name, predict
 import importlib.util
 model_path = join(base_path, f'../models/{model_name}.py')
 spec = importlib.util.spec_from_file_location("model", model_path)
@@ -47,10 +47,23 @@ vectorizer = CountVectorizer()
 X = vectorizer.fit_transform(data_sentences)
 y = model.predict(data_sentences)
 
-reduced_data = PCA(n_components=2).fit_transform(X.todense())
+reduced_data = PCA(n_components=3).fit_transform(X.todense())
 
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 # import matplotlib
 
-plt.scatter(reduced_data[:, 0], reduced_data[:, 1], c=y, s=1)
+fig = plt.figure()
+ax = Axes3D(fig)
+ax.scatter(reduced_data[:, 0], reduced_data[:, 1], reduced_data[:, 2], c=y, s=1)
+plt.savefig(f"{base_path}/graphs/{sys.argv[1]}_3d.png")
+
+plt.clf()
+fig, axs = plt.subplots(2, 2)
+axs[0, 0].scatter(reduced_data[:, 0], reduced_data[:, 1], c=y, s=1)
+axs[0, 0].set_title('Dims 1 x 2')
+axs[0, 1].scatter(reduced_data[:, 0], reduced_data[:, 2], c=y, s=1)
+axs[0, 1].set_title('Dims 1 x 3')
+axs[1, 0].scatter(reduced_data[:, 1], reduced_data[:, 2], c=y, s=1)
+axs[1, 0].set_title('Dims 2 x 3')
 plt.savefig(f"{base_path}/graphs/{sys.argv[1]}.png")

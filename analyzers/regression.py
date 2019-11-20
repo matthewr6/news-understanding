@@ -1,12 +1,7 @@
-import pandas as pd
 import numpy as np
 import sklearn
 import sys
-# import nltk
-import gensim.corpora
-from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
-# from sklearn.preprocessing import normalize
-# import pickle
+from sklearn.feature_extraction.text import CountVectorizer
 import json
 import os
 import glob
@@ -16,20 +11,36 @@ from sklearn.utils import shuffle
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.linear_model import LogisticRegression
 
+# danger
+sys.path.append('.')
+from extractors.raw_count import raw_count_topics
+from extractors.intracluster_proportion import intracluster_proportion_topics
+
+topic_extractors = {
+    'raw_count': raw_count_topics,
+    'intracluster_proportion': intracluster_proportion_topics,
+}
+topic_extractor = None
+
 base_path = dirname(__file__)
 model_name = os.path.basename(__file__).split('.')[0]
 
-if len(sys.argv) < 2:
-    print('python3 regression.py [model]')
+if len(sys.argv) < 3 or sys.argv[2] not in topic_extractors:
+    print('python3 regression.py [model] [topic extractor]')
     print('Model options:')
     for path in glob.glob(join(base_path, '../models/*.py')):
+        print(os.path.basename(path).split('.')[0])
+    print('\nTopic extractors:')
+    for path in glob.glob(join(base_path, '../extractors/*.py')):
         print(os.path.basename(path).split('.')[0])
     # list models
     sys.exit()
 
+topic_extractor = topic_extractors[sys.argv[2]]
+
 # models are dependent on featurizers
 model_name = sys.argv[1]
-print(f'Analyzing {model_name}')
+print(f'Analyzing {model_name} on {sys.argv[2]}')
 
 # import stuff from correct file
 # specifically featurizer_name, predict, and topics
@@ -45,25 +56,18 @@ data_sentences = [' '.join(text).lower() for text in model.data]
 # get true labels
 y = model.predict(data_sentences)
 
+# get topics
 def intersect(input_text, topics):
     return [i for i in input_text if i in topics]
-    # return list(set(a) & set(b))
-
-weighted = True
-print(f'weighted = {weighted}')
-stripped_data = [' '.join(intersect(text.split(' '), model.weighted_topics if weighted else model.topics)) for idx, text in enumerate(data_sentences)]
-# stripped_weighted_data = [' '.join(intersect(text.split(' '), model.weighted_topics)) for idx, text in enumerate(data_sentences)]
-
-# use weighted topics instead so stuff like trump is less relevant?
+with open(join(base_path, f'../models/models/{model_name}/clusters.json'), 'r') as f:
+    clusters = json.load(f)
+topics, cluster_topics = topic_extractor(clusters)
+stripped_data = [' '.join(intersect(text.split(' '), topics)) for idx, text in enumerate(data_sentences)]
 
 # get featurized data
 vectorizer = CountVectorizer()
 X_base = vectorizer.fit_transform(data_sentences)
 X_keywords = vectorizer.fit_transform(stripped_data)
-# X_weighted_keywords = vectorizer.fit_transform(stripped_weighted_data)
-
-
-# X_base, X_keywords, X_weighted_keywords, y = sklearn.utils.shuffle(X_base, X_keywords, X_weighted_keywords, y)
 
 iters = 10
 # set up classifiers
@@ -78,14 +82,8 @@ for i in range(iters):
     base_scores = np.concatenate([base_scores, cross_val_score(lr, X_base, y, cv=5, scoring='accuracy')])
     keywords_scores = np.concatenate([keywords_scores, cross_val_score(lr, X_keywords, y, cv=5, scoring='accuracy')])
     print(f'    Completed iter {i + 1}/{iters}')
-    # print('    featurized data', np.mean(base_scores))
-    # print('    keywords only', np.mean(keywords_scores))
-    # print('    overall score - keywords score', np.mean(base_scores) - np.mean(keywords_scores))
 
 print('featurized data', np.mean(base_scores))
 print('keywords only', np.mean(keywords_scores))
 print('overall score - keywords score', np.mean(base_scores) - np.mean(keywords_scores))
-
-print('terms')
-# get terms on a per topic basis
-# print(model.topics)
+print('standard deviation difference', np.sqrt(np.std(base_scores)**2 + np.std(keywords_scores)**2))

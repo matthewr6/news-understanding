@@ -9,7 +9,7 @@ import numpy as np
 from os.path import join, dirname, isfile
 base_path = dirname(__file__)
 
-featurizer_name = 'spacy_nouns'
+featurizer_name = 'ngram_2'
 model_name = os.path.basename(__file__).split('.')[0]
 
 # config
@@ -34,7 +34,7 @@ if __name__ == '__main__':
     groupings = {}
     for i in np.unique(y):
         groupings[str(i)] = []
-    for idx, d in enumerate(data):    
+    for idx, d in enumerate(data):
         groupings[str(y[idx])].append(d)
     with open(join(base_path, f'models/{model_name}/clusters.json'), 'w') as f:
         json.dump(groupings, f, indent=4)
