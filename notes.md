@@ -34,17 +34,14 @@ Visualization
 
 Todo
 
-- Lemmatizing featurizer (Chris)
-- Stemming featurizer (Chris)
-- Biterm model .py file from notebook (Chris)
-    - These should be done by now...
-- Biterm experiments (Chris)
+- write README
+- Biterm model finalizing + experiments (Matthew)
 - K-means experiments (different # clusters) (Sasankh)
 - LDA experiments (different featurizers/clusters) (Matthew)
-- 2-3 more topic extractors (Sasankh + Chris)
+- 2-3 more topic extractors (Chris)
     - Recall we want to find common terms unique to the cluster
-    - Pseudo tf-idf but based on clusters rather than documents (Sasankh)
-    - Somehow based on centroid vector (largest, average difference between other centroids?) (Sasankh)
-    - Would either highest or lowest singular values work (Sasankh)
+    - Pseudo tf-idf but based on clusters rather than documents (Chris) (tf is within cluster, idf is against outside clusters)
+    - Somehow based on centroid vector (largest, average difference between other centroids?) (Matthew)
+    - MultinomialNB (Sasankh)
 - Brief descriptions/writeups of each featurizer, model (+ extractor), and experiment (if experiment is interesting; from results and visualizations)
-- Poster (Sasankh + Chris + Matthew)
+- Poster (Sasankh + Chris)
