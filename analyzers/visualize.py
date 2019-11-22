@@ -18,11 +18,13 @@ from sklearn.linear_model import LogisticRegression
 
 from sklearn.decomposition import PCA
 
+import seaborn as sns
+
 base_path = dirname(__file__)
 model_name = os.path.basename(__file__).split('.')[0]
 
 if len(sys.argv) < 2:
-    print('python3 regression.py [model]')
+    print('python3 visualize.py [model]')
     print('Model options:')
     for path in glob.glob(join(base_path, '../models/*.py')):
         print(os.path.basename(path).split('.')[0])

@@ -36,12 +36,22 @@ Todo
 
 - write README
 - Biterm model finalizing + experiments (Matthew)
+    - qualitative analysis, explain which one's best
 - K-means experiments (different # clusters) (Sasankh)
+    - qualitative analysis, explain which one's best
 - LDA experiments (different featurizers/clusters) (Matthew)
-- 2-3 more topic extractors (Chris)
+    - qualitative analysis, explain which one's best
+- 2-3 more topic extractors
     - Recall we want to find common terms unique to the cluster
     - Pseudo tf-idf but based on clusters rather than documents (Chris) (tf is within cluster, idf is against outside clusters)
     - Somehow based on centroid vector (largest, average difference between other centroids?) (Matthew)
     - MultinomialNB (Sasankh)
 - Brief descriptions/writeups of each featurizer, model (+ extractor), and experiment (if experiment is interesting; from results and visualizations)
 - Poster (Sasankh + Chris)
+- Start on paper (Chris + Sasankh)
+
+Graphs (matthew?)
+- accuracy differences
+- for most successful model - plot of clusterings
+    - cluster topics
+    - examples of articles
