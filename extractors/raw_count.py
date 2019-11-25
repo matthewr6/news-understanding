@@ -2,6 +2,8 @@ import collections
 
 top_n_words = 25
 
+# self explanatory
+
 def raw_count_topics(groupings):
     topics = {}
     for label, sentences in groupings.items():

@@ -12,11 +12,13 @@ sys.path.append('.')
 from extractors.raw_count import raw_count_topics
 from extractors.intracluster_proportion import intracluster_proportion_topics
 from extractors.centroid_spread import centroid_spread_topics
+from extractors.word2vec import word2vec_topics
 
 topic_extractors = {
     'raw_count': raw_count_topics,
     'intracluster_proportion': intracluster_proportion_topics,
     'centroid_spread': centroid_spread_topics,
+    'word2vec': word2vec_topics,
 }
 topic_extractor = None
 

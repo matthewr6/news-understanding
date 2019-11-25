@@ -3,6 +3,8 @@ import collections
 top_n_words = 25
 possible_top_words = 100
 
+# proportion in cluster^2 / total proportion
+
 def normalize_dict(d):
     total = 0
     for k, v in d.items():

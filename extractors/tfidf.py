@@ -1,0 +1,1 @@
+# @ chris - tfidf where tf is within cluster, idf is outide of cluster

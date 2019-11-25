@@ -5,6 +5,11 @@ from sklearn.feature_extraction.text import CountVectorizer
 
 top_n_words = 25
 
+# uses top 250 dimensions where centroids have
+# highest standard deviation and assigns
+# those dimensions to the most relevent
+# clusters
+
 def centroid_spread_topics(groupings):
     vectorizer = CountVectorizer()
     all_text = []
