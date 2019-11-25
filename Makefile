@@ -41,8 +41,16 @@ model/all:
 	time python3 models/kmeans_10topics_spacy_nouns.py
 	time python3 models/kmeans_10topics_median_word_length.py
 
+model/tkm:
+# 	time python3 models/tkm_10topics_simple.py
+	time python3 models/tkm_10topics_no_stopwords.py
+	time python3 models/tkm_10topics_spacy_nouns.py
+	time python3 models/tkm_15topics_no_stopwords.py
+	time python3 models/tkm_20topics_spacy_nouns.py
+# 	time python3 models/tkm_10topics_median_word_length.py
+
 model/%:
-	time python3 models/$*.py $(featurizer)
+	time python3 models/$*.py
 
 ############
 # ANALYSIS #
@@ -62,6 +70,12 @@ visualize/all:
 	python3 analyzers/visualize.py kmeans_10topics_no_stopwords
 	python3 analyzers/visualize.py kmeans_10topics_spacy_nouns
 	python3 analyzers/visualize.py kmeans_10topics_median_word_length
+
+visualize/tkm:
+	python3 analyzers/visualize.py tkm_10topics_no_stopwords
+	python3 analyzers/visualize.py tkm_10topics_spacy_nouns
+	python3 analyzers/visualize.py tkm_15topics_no_stopwords
+	python3 analyzers/visualize.py tkm_20topics_spacy_nouns
 
 visualize/%:
 	python3 analyzers/visualize.py $*

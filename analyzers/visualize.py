@@ -3,7 +3,6 @@ import numpy as np
 import sklearn
 import sys
 # import nltk
-import gensim.corpora
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 # from sklearn.preprocessing import normalize
 # import pickle
@@ -18,7 +17,7 @@ from sklearn.linear_model import LogisticRegression
 
 from sklearn.decomposition import PCA
 
-import seaborn as sns
+# import seaborn as sns
 
 base_path = dirname(__file__)
 model_name = os.path.basename(__file__).split('.')[0]
@@ -36,18 +35,27 @@ model_name = sys.argv[1]
 
 # import stuff from correct file
 # specifically featurizer_name, predict
-import importlib.util
-model_path = join(base_path, f'../models/{model_name}.py')
-spec = importlib.util.spec_from_file_location("model", model_path)
-model = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(model)
+# import importlib.util
+# model_path = join(base_path, f'../models/{model_name}.py')
+# spec = importlib.util.spec_from_file_location("model", model_path)
+# model = importlib.util.module_from_spec(spec)
+# spec.loader.exec_module(model)
 
 # get featurized data + keyword only featurized data
-data_sentences = [' '.join(text).lower() for text in model.data]
+# data_sentences = [' '.join(text).lower() for text in model.data]
+
+y = []
+X = []
+with open(join(base_path, f'../models/models/{model_name}/clusters.json'), 'r') as f:
+    clusters = json.load(f)
+
+for label in clusters:
+    X += [' '.join(l) for l in clusters[label]]
+    y += [int(label)] * len(clusters[label])
 
 vectorizer = CountVectorizer()
-X = vectorizer.fit_transform(data_sentences)
-y = model.predict(data_sentences)
+X = vectorizer.fit_transform(X)
+# y = model.predict(data_sentences)
 
 reduced_data = PCA(n_components=3).fit_transform(X.todense())
 
