@@ -65,6 +65,15 @@ analyze/all:
 analyze/%:
 	python3 analyzers/regression.py $* $(extractor)
 
+visualize/kmeans:
+	python3 analyzers/visualize.py kmeans_5topics_median_word_length
+	python3 analyzers/visualize.py kmeans_8topics_median_word_length
+	python3 analyzers/visualize.py kmeans_10topics_median_word_length
+	python3 analyzers/visualize.py kmeans_12topics_median_word_length
+	python3 analyzers/visualize.py kmeans_15topics_median_word_length
+
+
+
 visualize/all:
 	python3 analyzers/visualize.py kmeans_10topics_simple
 	python3 analyzers/visualize.py kmeans_10topics_no_stopwords
