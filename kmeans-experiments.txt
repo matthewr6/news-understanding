@@ -1,0 +1,41 @@
+Tested on:
+
+Model: kmeans_10topics_median_word_length.py
+
+Extractor: analyzers/regression.py kmeans_10topics_median_word_length centroid_spread
+
+#5 clusters
+featurized data 0.981792404195334
+keywords only 0.9872009682907645
+overall score - keywords score -0.005408564095430557
+standard deviation difference 0.004271143053642488
+
+# 8 clusters
+featurized data 0.9799570753638036
+keywords only 0.9842315388182843
+overall score - keywords score -0.0042744634544806814
+standard deviation difference 0.004889107366812442
+
+# 10 clusters
+featurized data 0.9732927081760039
+keywords only 0.9803674644145144
+overall score - keywords score -0.0070747562385105045
+standard deviation difference 0.004840364972632895
+
+# 12 clusters
+featurized data 0.981065584559583
+keywords only 0.9826364994163395
+overall score - keywords score -0.0015709148567564224
+standard deviation difference 0.005257395277958119
+
+# 15 clusters
+featurized data 0.9735306336746744
+keywords only 0.9797632491331586
+overall score - keywords score -0.006232615458484192
+standard deviation difference 0.005541233822067185
+
+# 20 clusters
+featurized data 0.9708582141567065
+keywords only 0.9760223477974097
+overall score - keywords score -0.005164133640703228
+standard deviation difference 0.006814712476444043
