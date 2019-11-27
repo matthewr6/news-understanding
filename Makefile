@@ -42,6 +42,12 @@ model/all:
 	time python3 models/kmeans_10topics_spacy_nouns.py
 	time python3 models/kmeans_10topics_median_word_length.py
 
+model/all8:
+	time python3 models/kmeans_8topics_simple.py
+	time python3 models/kmeans_8topics_no_stopwords.py
+	time python3 models/kmeans_8topics_spacy_nouns.py
+	time python3 models/kmeans_8topics_median_word_length.py
+
 model/tkm:
 # 	time python3 models/tkm_10topics_simple.py
 	time python3 models/tkm_10topics_no_stopwords.py
@@ -80,6 +86,15 @@ analyze/lda:
 
 analyze/%:
 	python3 analyzers/regression.py $* $(extractor)
+
+visualize/kmeans:
+	python3 analyzers/visualize.py kmeans_5topics_median_word_length
+	python3 analyzers/visualize.py kmeans_8topics_median_word_length
+	python3 analyzers/visualize.py kmeans_10topics_median_word_length
+	python3 analyzers/visualize.py kmeans_12topics_median_word_length
+	python3 analyzers/visualize.py kmeans_15topics_median_word_length
+
+
 
 visualize/all:
 	python3 analyzers/visualize.py kmeans_10topics_simple
