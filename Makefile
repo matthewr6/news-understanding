@@ -41,6 +41,12 @@ model/all:
 	time python3 models/kmeans_10topics_spacy_nouns.py
 	time python3 models/kmeans_10topics_median_word_length.py
 
+model/all8:
+	time python3 models/kmeans_8topics_simple.py
+	time python3 models/kmeans_8topics_no_stopwords.py
+	time python3 models/kmeans_8topics_spacy_nouns.py
+	time python3 models/kmeans_8topics_median_word_length.py
+
 model/tkm:
 # 	time python3 models/tkm_10topics_simple.py
 	time python3 models/tkm_10topics_no_stopwords.py
