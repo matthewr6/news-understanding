@@ -71,7 +71,7 @@ vectorizer = CountVectorizer()
 X_base = vectorizer.fit_transform(data_sentences)
 X_keywords = vectorizer.fit_transform(stripped_data)
 
-iters = 10
+iters = 5
 # set up classifiers
 lr = LogisticRegression(multi_class='auto', solver='lbfgs', max_iter=1000)
 

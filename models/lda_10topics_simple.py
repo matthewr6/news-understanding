@@ -7,7 +7,7 @@ import numpy as np
 from os.path import join, dirname, isfile
 base_path = dirname(__file__)
 
-featurizer_name = 'spacy_nouns'
+featurizer_name = 'simple'
 model_name = os.path.basename(__file__).split('.')[0]
 
 # config

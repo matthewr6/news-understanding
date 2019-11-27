@@ -14,9 +14,10 @@ list:
 
 # Download news data from newsapi.org
 dataset:
-	python3 datasets/pull.py
-	python3 datasets/compile.py
-	python3 datasets/flatten.py
+	@echo "Dataset is frozen"
+# 	python3 datasets/pull.py
+# 	python3 datasets/compile.py
+# 	python3 datasets/flatten.py
 
 ###############
 # FEATURIZERS #
@@ -49,6 +50,14 @@ model/tkm:
 	time python3 models/tkm_20topics_spacy_nouns.py
 # 	time python3 models/tkm_10topics_median_word_length.py
 
+model/lda:
+	time python3 models/lda_10topics_simple.py
+	time python3 models/lda_10topics_no_stopwords.py
+	time python3 models/lda_10topics_median_word_length.py
+	time python3 models/lda_10topics_spacy_nouns.py
+# 	time python3 models/lda_15topics_simple.py
+# 	time python3 models/lda_20topics_simple.py
+
 model/%:
 	time python3 models/$*.py
 
@@ -61,6 +70,13 @@ analyze/all:
 	python3 analyzers/regression.py kmeans_10topics_no_stopwords $(extractor)
 	python3 analyzers/regression.py kmeans_10topics_spacy_nouns $(extractor)
 	python3 analyzers/regression.py kmeans_10topics_median_word_length $(extractor)
+
+# lda 10 topics best
+analyze/lda:
+	python3 analyzers/regression.py lda_10topics_simple $(extractor)
+	python3 analyzers/regression.py lda_10topics_no_stopwords $(extractor)
+	python3 analyzers/regression.py lda_10topics_spacy_nouns $(extractor)
+	python3 analyzers/regression.py lda_10topics_median_word_length $(extractor)
 
 analyze/%:
 	python3 analyzers/regression.py $* $(extractor)

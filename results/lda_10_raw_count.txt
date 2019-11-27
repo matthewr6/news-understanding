@@ -1,0 +1,48 @@
+python3 analyzers/regression.py lda_10topics_simple raw_count
+Analyzing lda_10topics_simple on raw_count
+Beginning cross validation on logistic regression...
+    Completed iter 1/5
+    Completed iter 2/5
+    Completed iter 3/5
+    Completed iter 4/5
+    Completed iter 5/5
+featurized data 0.71548652884976
+keywords only 0.47573193556275684
+overall score - keywords score 0.23975459328700321
+standard deviation difference 0.013619214895722247
+python3 analyzers/regression.py lda_10topics_no_stopwords raw_count
+Analyzing lda_10topics_no_stopwords on raw_count
+Beginning cross validation on logistic regression...
+    Completed iter 1/5
+    Completed iter 2/5
+    Completed iter 3/5
+    Completed iter 4/5
+    Completed iter 5/5
+featurized data 0.6691619151378867
+keywords only 0.44736012673908454
+overall score - keywords score 0.22180178839880216
+standard deviation difference 0.014890888254002945
+python3 analyzers/regression.py lda_10topics_spacy_nouns raw_count
+Analyzing lda_10topics_spacy_nouns on raw_count
+Beginning cross validation on logistic regression...
+    Completed iter 1/5
+    Completed iter 2/5
+    Completed iter 3/5
+    Completed iter 4/5
+    Completed iter 5/5
+featurized data 0.7356678267524687
+keywords only 0.5214002797685082
+overall score - keywords score 0.21426754698396044
+standard deviation difference 0.01314579392485314
+python3 analyzers/regression.py lda_10topics_median_word_length raw_count
+Analyzing lda_10topics_median_word_length on raw_count
+Beginning cross validation on logistic regression...
+    Completed iter 1/5
+    Completed iter 2/5
+    Completed iter 3/5
+    Completed iter 4/5
+    Completed iter 5/5
+featurized data 0.6718683525504494
+keywords only 0.45694562830591373
+overall score - keywords score 0.21492272424453568
+standard deviation difference 0.015602558781882166

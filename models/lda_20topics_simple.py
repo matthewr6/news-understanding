@@ -7,11 +7,11 @@ import numpy as np
 from os.path import join, dirname, isfile
 base_path = dirname(__file__)
 
-featurizer_name = 'spacy_nouns'
+featurizer_name = 'simple'
 model_name = os.path.basename(__file__).split('.')[0]
 
 # config
-num_topics = 10
+num_topics = 20
 
 with open(join(base_path, f'../featurizers/featurized_data/{featurizer_name}.json')) as f:
     data = [[w.lower() for w in line] for line in json.load(f)]
