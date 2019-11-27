@@ -108,6 +108,12 @@ visualize/tkm:
 	python3 analyzers/visualize.py tkm_15topics_no_stopwords
 	python3 analyzers/visualize.py tkm_20topics_spacy_nouns
 
+visualize/lda:
+	python3 analyzers/visualize.py lda_10topics_simple 
+	python3 analyzers/visualize.py lda_10topics_no_stopwords 
+	python3 analyzers/visualize.py lda_10topics_spacy_nouns 
+	python3 analyzers/visualize.py lda_10topics_median_word_length 
+
 visualize/%:
 	python3 analyzers/visualize.py $*
 

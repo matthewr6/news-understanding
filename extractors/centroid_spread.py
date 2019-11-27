@@ -8,7 +8,7 @@ top_n_words = 25
 # uses top 250 dimensions where centroids have
 # highest standard deviation and assigns
 # those dimensions to the most relevent
-# clusters
+# clusters based on cosine dist
 
 def centroid_spread_topics(groupings):
     vectorizer = CountVectorizer()
@@ -31,8 +31,8 @@ def centroid_spread_topics(groupings):
     number_to_assign = num_clusters * top_n_words
     all_words = set()
     for i in range(number_to_assign):
-        distances = [distance.cosine(word_vecs[i], center) for center in centers]
-        assignment = np.argmin(distances)
+        relevances = [center[highest_deviations[i]] for center in centers]
+        assignment = np.argmax(relevances)
         topic_words[str(assignment)].add(words[i])
         all_words.add(words[i])
     topic_words = dict(topic_words)
