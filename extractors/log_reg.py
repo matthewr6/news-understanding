@@ -3,7 +3,7 @@
 import collections
 import numpy as np
 
-from sklearn.naive_bayes import MultinomialNB
+from sklearn.linear_model import LogisticRegression
 
 from itertools import combinations
 
@@ -11,9 +11,8 @@ import pandas as pd
 
 top_n_words = 25
 
-# self explanatory
 
-def naive_bayes_topics(groupings):
+def log_reg_topics(groupings):
     topics = {}
     for label, sentences in groupings.items():
         if label not in topics:
@@ -27,18 +26,16 @@ def naive_bayes_topics(groupings):
     all_key_words = []
     cluster_words = {}
 
-    clf = MultinomialNB()
+    logreg = LogisticRegression(solver='lbfgs', multi_class='multinomial')
 
     df = pd.DataFrame.from_dict(topics, orient='index', dtype=int).fillna(0.0)
-    clf.fit(df, list(topics.keys()))
+    logreg.fit(df, list(topics.keys()))
     print('Trained Classifier')
 
 
     for label, words in topics.items():
-        c = collections.Counter(words)
-        unique_words = list(c.keys())
-        print(unique_words)
-        print(len(unique_words))
+
+
 
 
         comb = list(combinations(unique_words, top_n_words))
