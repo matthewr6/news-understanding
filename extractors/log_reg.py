@@ -11,6 +11,7 @@ import pandas as pd
 
 top_n_words = 25
 
+# trains a logistic regression classifier and extracts the keywords based on the 25 highest magnitude weights
 
 def log_reg_topics(groupings):
     topics = {}
