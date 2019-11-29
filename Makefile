@@ -78,9 +78,9 @@ analyze/all:
 	python3 analyzers/regression.py kmeans_10topics_median_word_length $(extractor)
 
 analyze/exp8:
-        python3 analyzers/regression.py kmeans_8topics_simple raw_count
-        python3 analyzers/regression.py kmeans_8topics_no_stopwords raw_count
-        python3 analyzers/regression.py kmeans_8topics_spacy_nouns raw_count
+	python3 analyzers/regression.py kmeans_8topics_simple raw_count
+	python3 analyzers/regression.py kmeans_8topics_no_stopwords raw_count
+	python3 analyzers/regression.py kmeans_8topics_spacy_nouns raw_count
 	python3 analyzers/regression.py kmeans_8topics_median_word_length raw_count
 	python3 analyzers/regression.py kmeans_8topics_simple centroid_spread
 	python3 analyzers/regression.py kmeans_8topics_no_stopwords centroid_spread
@@ -92,9 +92,9 @@ analyze/exp8:
 	python3 analyzers/regression.py kmeans_8topics_median_word_length intracluster_proportion
 
 analyze/exp10:
-        python3 analyzers/regression.py kmeans_10topics_simple raw_count
-        python3 analyzers/regression.py kmeans_10topics_no_stopwords raw_count
-        python3 analyzers/regression.py kmeans_10topics_spacy_nouns raw_count
+	python3 analyzers/regression.py kmeans_10topics_simple raw_count
+	python3 analyzers/regression.py kmeans_10topics_no_stopwords raw_count
+	python3 analyzers/regression.py kmeans_10topics_spacy_nouns raw_count
 	python3 analyzers/regression.py kmeans_10topics_median_word_length raw_count
 	python3 analyzers/regression.py kmeans_10topics_simple centroid_spread
 	python3 analyzers/regression.py kmeans_10topics_no_stopwords centroid_spread
