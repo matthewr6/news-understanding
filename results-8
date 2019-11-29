@@ -1,0 +1,72 @@
+
+# kmeans_8topics_simple raw_count
+featurized data 0.9726867304431738
+keywords only 0.9814786981988652
+overall score - keywords score -0.008791967755691465
+standard deviation difference 0.004851221494541482
+
+# kmeans_8topics_no_stopwords raw_count
+featurized data 0.9688248936574841
+keywords only 0.9787243647219803
+overall score - keywords score -0.00989947106449618
+standard deviation difference 0.004571626140095248
+
+# kmeans_8topics_spacy_nouns raw_count
+featurized data 0.9790877247537775
+keywords only 0.9873224097721137
+overall score - keywords score -0.00823468501833624
+standard deviation difference 0.00399590331581662
+
+# kmeans_8topics_median_word_length raw_count
+featurized data 0.9747904795732676
+keywords only 0.9804419629099429
+overall score - keywords score -0.0056514833366753114
+standard deviation difference 0.004571526565449891
+
+# kmeans_8topics_simple centroid_spread
+featurized data 0.9724949075052907
+keywords only 0.9773480357956309
+overall score - keywords score -0.004853128290340236
+standard deviation difference 0.004457655881188796
+
+# kmeans_8topics_no_stopwords centroid_spread
+featurized data 0.9689694839054518
+keywords only 0.9772759299293878
+overall score - keywords score -0.008306446023936043
+standard deviation difference 0.005068794394128001
+
+# kmeans_8topics_spacy_nouns centroid_spread
+featurized data 0.979257098004227
+keywords only 0.9859936723082329
+overall score - keywords score -0.006736574304005871
+standard deviation difference 0.004572116526362876
+
+# kmeans_8topics_median_word_length centroid_spread
+featurized data 0.974933700241635
+keywords only 0.9798118728637166
+overall score - keywords score -0.004878172622081678
+standard deviation difference 0.003928259471843853
+
+# kmeans_8topics_simple intracluster_proportion
+featurized data 0.9726123711046726
+keywords only 0.9770345356693463
+overall score - keywords score -0.004422164564673703
+standard deviation difference 0.005807770267817416
+
+# kmeans_8topics_no_stopwords intracluster_proportion
+featurized data 0.9693042624234165
+keywords only 0.9773464386221349
+overall score - keywords score -0.008042176198718387
+standard deviation difference 0.005586523988901639
+
+# kmeans_8topics_spacy_nouns intracluster_proportion
+featurized data 0.9789421422395712
+keywords only 0.9863803364211585
+overall score - keywords score -0.00743819418158731
+standard deviation difference 0.0041367661639281905
+
+# kmeans_8topics_median_word_length intracluster_proportion
+featurized data 0.9746936576075622
+keywords only 0.9805115434236451
+overall score - keywords score -0.005817885816082891
+standard deviation difference 0.00464950183582504

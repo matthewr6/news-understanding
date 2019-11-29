@@ -77,6 +77,25 @@ analyze/all:
 	python3 analyzers/regression.py kmeans_10topics_spacy_nouns $(extractor)
 	python3 analyzers/regression.py kmeans_10topics_median_word_length $(extractor)
 
+analyze/exp:
+    python3 analyzers/regression.py kmeans_8topics_simple raw_count
+    python3 analyzers/regression.py kmeans_8topics_no_stopwords raw_count
+    python3 analyzers/regression.py kmeans_8topics_spacy_nouns raw_count
+	python3 analyzers/regression.py kmeans_8topics_median_word_length raw_count
+	python3 analyzers/regression.py kmeans_8topics_simple centroid_spread
+	python3 analyzers/regression.py kmeans_8topics_no_stopwords centroid_spread
+	python3 analyzers/regression.py kmeans_8topics_spacy_nouns centroid_spread
+	python3 analyzers/regression.py kmeans_8topics_median_word_length centroid_spread
+	python3 analyzers/regression.py kmeans_8topics_simple intracluster_proportion
+	python3 analyzers/regression.py kmeans_8topics_no_stopwords intracluster_proportion
+	python3 analyzers/regression.py kmeans_8topics_spacy_nouns intracluster_proportion
+	python3 analyzers/regression.py kmeans_8topics_median_word_length intracluster_proportion
+
+
+
+
+
+
 # lda 10 topics best
 analyze/lda:
 	python3 analyzers/regression.py lda_10topics_simple $(extractor)
