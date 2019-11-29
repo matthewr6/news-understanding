@@ -12,15 +12,14 @@ sys.path.append('.')
 from extractors.raw_count import raw_count_topics
 from extractors.intracluster_proportion import intracluster_proportion_topics
 from extractors.centroid_spread import centroid_spread_topics
-from extractors.word2vec import word2vec_topics
-from extractors.centroid_zscore import centroid_zscore_topics
+from extractors.log_reg import log_reg_topics
+
 
 topic_extractors = {
     'raw_count': raw_count_topics,
     'intracluster_proportion': intracluster_proportion_topics,
     'centroid_spread': centroid_spread_topics,
-    'word2vec': word2vec_topics,
-    'centroid_zscore': centroid_zscore_topics,
+    'log_reg': log_reg_topics,
 }
 topic_extractor = None
 
@@ -75,5 +74,5 @@ topics, cluster_topics = topic_extractor(clusters)
 #     label = y[idx]
 #     groupings[str(label)]['articles'].append(sentence)
 
-with open(join(base_path, f'groupings/{model_name}.json'), 'w') as f:
+with open(join(base_path, f'groupings/{model_name}_{sys.argv[2]}.json'), 'w') as f:
     json.dump(cluster_topics, f, indent=4)

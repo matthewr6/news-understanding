@@ -22,6 +22,30 @@ keywords only 0.9881918362068237
 overall score - keywords score -0.004251040179114041
 standard deviation difference 0.0037823555697582617
 
+# kmeans_10topics_simple log_reg
+featurized data 0.9712416687550605
+keywords only 0.9770124119059751
+overall score - keywords score -0.005770743150914637
+standard deviation difference 0.006095707074236268
+
+# kmeans_10topics_no_stopwords log_reg
+featurized data 0.9621840553356849
+keywords only 0.977275192598691
+overall score - keywords score -0.015091137263006149
+standard deviation difference 0.0043356634332889395
+
+# kmeans_10topics_spacy_nouns log_reg
+featurized data 0.9708302299394989
+keywords only 0.9853430960643166
+overall score - keywords score -0.014512866124817725
+standard deviation difference 0.004312970877204087
+
+# kmeans_10topics_median_word_length log_reg
+featurized data 0.9843022713541179
+keywords only 0.9886260366733403
+overall score - keywords score -0.004323765319222406
+standard deviation difference 0.0032883549697523464
+
 # kmeans_10topics_simple centroid_spread
 featurized data 0.9724949075052907
 keywords only 0.9773480357956309
