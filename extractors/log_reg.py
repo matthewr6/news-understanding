@@ -5,8 +5,6 @@ import numpy as np
 
 from sklearn.linear_model import LogisticRegression
 
-from itertools import combinations
-
 import pandas as pd
 
 top_n_words = 25
@@ -33,7 +31,6 @@ def log_reg_topics(groupings):
     logreg.fit(df, list(topics.keys()))
     print('Trained Classifier')
 
-    print(logreg.coef_.shape)
     weights = abs(logreg.coef_)
     for index, label, in enumerate(topics.keys()):
         ind = np.argpartition(weights[index], -top_n_words)[-top_n_words:]
