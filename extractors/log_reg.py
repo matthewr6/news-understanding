@@ -23,7 +23,7 @@ def log_reg_topics(groupings):
                     topics[label][word] += 1
 
 
-    all_key_words = []
+    all_key_words = set()
     cluster_words = {}
 
     logreg = LogisticRegression(solver='lbfgs', multi_class='multinomial')
@@ -32,23 +32,14 @@ def log_reg_topics(groupings):
     logreg.fit(df, list(topics.keys()))
     print('Trained Classifier')
 
+    print(logreg.coef_.shape)
+    weights = abs(logreg.coef_)
+    for index, label, in enumerate(topics.keys()):
+        ind = np.argpartition(weights[index], -top_n_words)[-top_n_words:]
+        kw = []
+        for i in ind:
+            kw.append(df.columns[i])
+        all_key_words.update(kw)
+        cluster_words[label] = kw
 
-    for label, words in topics.items():
-
-
-
-
-        comb = list(combinations(unique_words, top_n_words))
-
-        highest_prob = 0
-        highest_comb = []
-        for w in comb:
-            res = clf.predict(w)
-            if res == label and clf.predict_proba(w) > highest_prob:
-                highest_prob = clf.predict_proba(w)
-                highest_comb = w
-
-        all_key_words.append(highest_comb)
-        cluster_words[label] = highest_comb
-
-    return (set(all_key_words), cluster_words)
+    return (all_key_words, cluster_words)
