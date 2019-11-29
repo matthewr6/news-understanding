@@ -48,6 +48,12 @@ model/all8:
 	time python3 models/kmeans_8topics_spacy_nouns.py
 	time python3 models/kmeans_8topics_median_word_length.py
 
+model/all12:
+	time python3 models/kmeans_12topics_simple.py
+	time python3 models/kmeans_12topics_no_stopwords.py
+	time python3 models/kmeans_12topics_spacy_nouns.py
+	time python3 models/kmeans_12topics_median_word_length.py
+
 model/tkm:
 # 	time python3 models/tkm_10topics_simple.py
 	time python3 models/tkm_10topics_no_stopwords.py
@@ -105,8 +111,54 @@ analyze/exp10:
 	python3 analyzers/regression.py kmeans_10topics_spacy_nouns intracluster_proportion
 	python3 analyzers/regression.py kmeans_10topics_median_word_length intracluster_proportion
 
+clusterscore/exp10:
+	python3 analyzers/cluster_score.py kmeans_10topics_simple raw_count
+	python3 analyzers/cluster_score.py kmeans_10topics_no_stopwords raw_count
+	python3 analyzers/cluster_score.py kmeans_10topics_spacy_nouns raw_count
+	python3 analyzers/cluster_score.py kmeans_10topics_median_word_length raw_count
+	python3 analyzers/cluster_score.py kmeans_10topics_simple centroid_spread
+	python3 analyzers/cluster_score.py kmeans_10topics_no_stopwords centroid_spread
+	python3 analyzers/cluster_score.py kmeans_10topics_spacy_nouns centroid_spread
+	python3 analyzers/cluster_score.py kmeans_10topics_median_word_length centroid_spread
+	python3 analyzers/cluster_score.py kmeans_10topics_simple intracluster_proportion
+	python3 analyzers/cluster_score.py kmeans_10topics_no_stopwords intracluster_proportion
+	python3 analyzers/cluster_score.py kmeans_10topics_spacy_nouns intracluster_proportion
+	python3 analyzers/cluster_score.py kmeans_10topics_median_word_length intracluster_proportion
+
+analyze/exp12:
+	python3 analyzers/regression.py kmeans_12topics_simple raw_count
+	python3 analyzers/regression.py kmeans_12topics_no_stopwords raw_count
+	python3 analyzers/regression.py kmeans_12topics_spacy_nouns raw_count
+	python3 analyzers/regression.py kmeans_12topics_median_word_length raw_count
+	python3 analyzers/regression.py kmeans_12topics_simple centroid_spread
+	python3 analyzers/regression.py kmeans_12topics_no_stopwords centroid_spread
+	python3 analyzers/regression.py kmeans_12topics_spacy_nouns centroid_spread
+	python3 analyzers/regression.py kmeans_12topics_median_word_length centroid_spread
+	python3 analyzers/regression.py kmeans_12topics_simple intracluster_proportion
+	python3 analyzers/regression.py kmeans_12topics_no_stopwords intracluster_proportion
+	python3 analyzers/regression.py kmeans_12topics_spacy_nouns intracluster_proportion
+	python3 analyzers/regression.py kmeans_12topics_median_word_length intracluster_proportion
+
+clusterscore/exp12:
+	python3 analyzers/cluster_score.py kmeans_12topics_simple raw_count
+	python3 analyzers/cluster_score.py kmeans_12topics_no_stopwords raw_count
+	python3 analyzers/cluster_score.py kmeans_12topics_spacy_nouns raw_count
+	python3 analyzers/cluster_score.py kmeans_12topics_median_word_length raw_count
+	python3 analyzers/cluster_score.py kmeans_12topics_simple centroid_spread
+	python3 analyzers/cluster_score.py kmeans_12topics_no_stopwords centroid_spread
+	python3 analyzers/cluster_score.py kmeans_12topics_spacy_nouns centroid_spread
+	python3 analyzers/cluster_score.py kmeans_12topics_median_word_length centroid_spread
+	python3 analyzers/cluster_score.py kmeans_12topics_simple intracluster_proportion
+	python3 analyzers/cluster_score.py kmeans_12topics_no_stopwords intracluster_proportion
+	python3 analyzers/cluster_score.py kmeans_12topics_spacy_nouns intracluster_proportion
+	python3 analyzers/cluster_score.py kmeans_12topics_median_word_length intracluster_proportion
 
 
+clusterscore/clusternums:
+	python3 analyzers/cluster_score.py kmeans_8topics_median_word_length raw_count
+	python3 analyzers/cluster_score.py kmeans_10topics_median_word_length raw_count
+	python3 analyzers/cluster_score.py kmeans_12topics_median_word_length raw_count
+	python3 analyzers/cluster_score.py kmeans_15topics_median_word_length raw_count
 
 
 
@@ -126,6 +178,13 @@ visualize/kmeans:
 	python3 analyzers/visualize.py kmeans_10topics_median_word_length
 	python3 analyzers/visualize.py kmeans_12topics_median_word_length
 	python3 analyzers/visualize.py kmeans_15topics_median_word_length
+
+
+visualize/kmeans12:
+	python3 analyzers/visualize.py kmeans_12topics_median_word_length
+	python3 analyzers/visualize.py kmeans_12topics_simple
+	python3 analyzers/visualize.py kmeans_12topics_spacy_nouns
+	python3 analyzers/visualize.py kmeans_12topics_no_stopwords
 
 
 

@@ -1,0 +1,12 @@
+python3 analyzers/cluster_score.py kmeans_8topics_median_word_length raw_count
+Original score: 5.254823684546761
+Keyword-only score: 2.6089159816334915
+python3 analyzers/cluster_score.py kmeans_10topics_median_word_length raw_count
+Original score: 4.822127393429521
+Keyword-only score: 2.3409183315283806
+python3 analyzers/cluster_score.py kmeans_12topics_median_word_length raw_count
+Original score: 4.368896297104269
+Keyword-only score: 2.206228157920718
+python3 analyzers/cluster_score.py kmeans_15topics_median_word_length raw_count
+Original score: 4.454482528756012
+Keyword-only score: 2.4361880081478375
