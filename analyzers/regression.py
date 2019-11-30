@@ -88,7 +88,7 @@ y_hat_2 = lr.predict(X_keywords)
 acc = np.sum(y_hat == y) / len(y)
 keyword_acc = np.sum(y_hat_2 == y) / len(y)
 
-print(acc)
-print(keyword_acc)
-print(acc - keyword_acc)
+print('Original:', acc)
+print('Keywords only:', keyword_acc)
+print('Difference:', acc - keyword_acc)
 
