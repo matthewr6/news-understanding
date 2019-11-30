@@ -1,0 +1,36 @@
+python3 analyzers/cluster_score.py kmeans_12topics_simple raw_count
+Original score: 5.195913007001621
+Keyword-only score: 2.8433803138075042
+python3 analyzers/cluster_score.py kmeans_12topics_no_stopwords raw_count
+Original score: 5.326163926660544
+Keyword-only score: 2.612056042408903
+python3 analyzers/cluster_score.py kmeans_12topics_spacy_nouns raw_count
+Original score: 4.6524529618856905
+Keyword-only score: 2.659771520132933
+python3 analyzers/cluster_score.py kmeans_12topics_median_word_length raw_count
+Original score: 4.368896297104269
+Keyword-only score: 2.206228157920718
+python3 analyzers/cluster_score.py kmeans_12topics_simple centroid_spread
+Original score: 5.195913007001621
+Keyword-only score: 3.494060061845614
+python3 analyzers/cluster_score.py kmeans_12topics_no_stopwords centroid_spread
+Original score: 5.326163926660544
+Keyword-only score: 2.8756623999427995
+python3 analyzers/cluster_score.py kmeans_12topics_spacy_nouns centroid_spread
+Original score: 4.6524529618856905
+Keyword-only score: 3.083680632759273
+python3 analyzers/cluster_score.py kmeans_12topics_median_word_length centroid_spread
+Original score: 4.368896297104269
+Keyword-only score: 2.5330105876455073
+python3 analyzers/cluster_score.py kmeans_12topics_simple intracluster_proportion
+Original score: 5.195913007001621
+Keyword-only score: 3.024995924522443
+python3 analyzers/cluster_score.py kmeans_12topics_no_stopwords intracluster_proportion
+Original score: 5.326163926660544
+Keyword-only score: 2.709671785303804
+python3 analyzers/cluster_score.py kmeans_12topics_spacy_nouns intracluster_proportion
+Original score: 4.6524529618856905
+Keyword-only score: 2.82757401326027
+python3 analyzers/cluster_score.py kmeans_12topics_median_word_length intracluster_proportion
+Original score: 4.368896297104269
+Keyword-only score: 2.3555582505291417

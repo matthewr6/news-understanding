@@ -1,0 +1,71 @@
+# python3 analyzers/regression.py kmeans_12topics_simple raw_count
+featurized data 0.9464135074744047
+keywords only 0.9674963472491795
+overall score - keywords score -0.021082839774774875
+standard deviation difference 0.005806028554751355
+
+# python3 analyzers/regression.py kmeans_12topics_no_stopwords raw_count
+featurized data 0.9645729195159867
+keywords only 0.9749082626890655
+overall score - keywords score -0.010335343173078826
+standard deviation difference 0.005801599912402916
+
+# python3 analyzers/regression.py kmeans_12topics_spacy_nouns raw_count
+featurized data 0.9663160091263149
+keywords only 0.9809001158623875
+overall score - keywords score -0.014584106736072577
+standard deviation difference 0.0052130703412952535
+
+# python3 analyzers/regression.py kmeans_12topics_median_word_length raw_count
+featurized data 0.9780956659316068
+keywords only 0.9816944761667394
+overall score - keywords score -0.0035988102351326434
+standard deviation difference 0.004657447004175226
+
+# python3 analyzers/regression.py kmeans_12topics_simple centroid_spread
+featurized data 0.9470672863870885
+keywords only 0.9604909474447793
+overall score - keywords score -0.013423661057690772
+standard deviation difference 0.007614360652758074
+
+# python3 analyzers/regression.py kmeans_12topics_no_stopwords centroid_spread
+featurized data 0.9646487272595101
+keywords only 0.9747670268297466
+overall score - keywords score -0.010118299570236466
+standard deviation difference 0.005649858706132953
+
+# python3 analyzers/regression.py kmeans_12topics_spacy_nouns centroid_spread
+featurized data 0.966506730633538
+keywords only 0.9770829301142799
+overall score - keywords score -0.010576199480741955
+standard deviation difference 0.004872658183411656
+
+# python3 analyzers/regression.py kmeans_12topics_median_word_length centroid_spread
+featurized data 0.9782433499185824
+keywords only 0.9812128112776167
+overall score - keywords score -0.002969461359034309
+standard deviation difference 0.003963588277991325
+
+# python3 analyzers/regression.py kmeans_12topics_simple intracluster_proportion
+featurized data 0.948249928231051
+keywords only 0.9626893669341822
+overall score - keywords score -0.014439438703131136
+standard deviation difference 0.0066020643325875135
+
+# python3 analyzers/regression.py kmeans_12topics_no_stopwords intracluster_proportion
+featurized data 0.9651794341852741
+keywords only 0.9732176838617589
+overall score - keywords score -0.00803824967648481
+standard deviation difference 0.004480298207051271
+
+# python3 analyzers/regression.py kmeans_12topics_spacy_nouns intracluster_proportion
+featurized data 0.9664078666177214
+keywords only 0.9787493129937412
+overall score - keywords score -0.01234144637601986
+standard deviation difference 0.004387485612690618
+
+# python3 analyzers/regression.py kmeans_12topics_median_word_length intracluster_proportion
+featurized data 0.9783872113129441
+keywords only 0.9819607288859054
+overall score - keywords score -0.0035735175729612045
+standard deviation difference 0.0040720014845419044
