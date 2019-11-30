@@ -76,19 +76,23 @@ stripped_data = [' '.join(intersect(text.split(' '), topics)) for idx, text in e
 # get featurized data
 vectorizer = CountVectorizer()
 X_base = vectorizer.fit_transform(data_sentences)
-X_keywords = vectorizer.transform(stripped_data)
+X_keywords = vectorizer.fit_transform(stripped_data)
 
 iters = 5
 # set up classifiers
-lr = LogisticRegression(multi_class='auto', solver='lbfgs', max_iter=5000)
-lr.fit(X_base, y)
-y_hat = lr.predict(X_base)
-y_hat_2 = lr.predict(X_keywords)
+lr = LogisticRegression(multi_class='auto', solver='lbfgs', max_iter=1000)
 
-acc = np.sum(y_hat == y) / len(y)
-keyword_acc = np.sum(y_hat_2 == y) / len(y)
+# predict
+base_scores = np.array([])
+keywords_scores = np.array([])
+print('Beginning cross validation on logistic regression...')
+for i in range(iters):
+    X_base, X_keywords, y = sklearn.utils.shuffle(X_base, X_keywords, y)
+    base_scores = np.concatenate([base_scores, cross_val_score(lr, X_base, y, cv=5, scoring='accuracy')])
+    keywords_scores = np.concatenate([keywords_scores, cross_val_score(lr, X_keywords, y, cv=5, scoring='accuracy')])
+    print(f'    Completed iter {i + 1}/{iters}')
 
-print('Original:', acc)
-print('Keywords only:', keyword_acc)
-print('Difference:', acc - keyword_acc)
-
+print('featurized data', np.mean(base_scores))
+print('keywords only', np.mean(keywords_scores))
+print('overall score - keywords score', np.mean(base_scores) - np.mean(keywords_scores))
+print('standard deviation difference', np.sqrt(np.std(base_scores)**2 + np.std(keywords_scores)**2))
