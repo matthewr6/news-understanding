@@ -18,6 +18,7 @@ from extractors.intracluster_proportion import intracluster_proportion_topics
 from extractors.centroid_spread import centroid_spread_topics
 from extractors.naive_bayes import naive_bayes_topics
 from extractors.log_reg import log_reg_topics
+from extractors.tfidf import tfidf_topics
 
 
 topic_extractors = {
@@ -26,6 +27,7 @@ topic_extractors = {
     'centroid_spread': centroid_spread_topics,
     'naive_bayes': naive_bayes_topics,
     'log_reg': log_reg_topics,
+    'tfidf': tfidf_topics,
 }
 topic_extractor = None
 
