@@ -1,83 +1,98 @@
-python3 analyzers/regression.py kmeans_10topics_simple raw_count
+# python3 analyzers/regression.py kmeans_10topics_simple raw_count
 Analyzing kmeans_10topics_simple on raw_count
 Original: 1.0
 Keywords only: 0.9733156242453513
 Difference: 0.02668437575464866
-python3 analyzers/regression.py kmeans_10topics_no_stopwords raw_count
+
+# python3 analyzers/regression.py kmeans_10topics_no_stopwords raw_count
 Analyzing kmeans_10topics_no_stopwords on raw_count
 Original: 1.0
 Keywords only: 0.9736778555904371
 Difference: 0.02632214440956293
-python3 analyzers/regression.py kmeans_10topics_spacy_nouns raw_count
+
+# python3 analyzers/regression.py kmeans_10topics_spacy_nouns raw_count
 Analyzing kmeans_10topics_spacy_nouns on raw_count
 Original: 1.0
 Keywords only: 0.9852692586331804
 Difference: 0.014730741366819622
-python3 analyzers/regression.py kmeans_10topics_median_word_length raw_count
+
+# python3 analyzers/regression.py kmeans_10topics_median_word_length raw_count
 Analyzing kmeans_10topics_median_word_length on raw_count
 Original: 1.0
 Keywords only: 0.9916686790630282
 Difference: 0.008331320936971753
-python3 analyzers/regression.py kmeans_10topics_simple log_reg
+
+# python3 analyzers/regression.py kmeans_10topics_simple log_reg
 Analyzing kmeans_10topics_simple on log_reg
 Trained Classifier
 Original: 1.0
 Keywords only: 0.9864766964501328
 Difference: 0.013523303549867194
-python3 analyzers/regression.py kmeans_10topics_no_stopwords log_reg
+
+# python3 analyzers/regression.py kmeans_10topics_no_stopwords log_reg
 Analyzing kmeans_10topics_no_stopwords on log_reg
 Trained Classifier
 Original: 1.0
 Keywords only: 0.9779038879497706
 Difference: 0.022096112050229433
-python3 analyzers/regression.py kmeans_10topics_spacy_nouns log_reg
+
+# python3 analyzers/regression.py kmeans_10topics_spacy_nouns log_reg
 Analyzing kmeans_10topics_spacy_nouns on log_reg
 Trained Classifier
 Original: 1.0
 Keywords only: 0.9902197536826853
 Difference: 0.009780246317314667
-python3 analyzers/regression.py kmeans_10topics_median_word_length log_reg
+
+# python3 analyzers/regression.py kmeans_10topics_median_word_length log_reg
 Analyzing kmeans_10topics_median_word_length on log_reg
 Trained Classifier
 Original: 1.0
 Keywords only: 0.9933590920067616
 Difference: 0.006640907993238354
-python3 analyzers/regression.py kmeans_10topics_simple centroid_spread
+
+# python3 analyzers/regression.py kmeans_10topics_simple centroid_spread
 Analyzing kmeans_10topics_simple on centroid_spread
 Original: 1.0
 Keywords only: 0.9894952909925139
 Difference: 0.010504709007486124
-python3 analyzers/regression.py kmeans_10topics_no_stopwords centroid_spread
+
+# python3 analyzers/regression.py kmeans_10topics_no_stopwords centroid_spread
 Analyzing kmeans_10topics_no_stopwords on centroid_spread
 Original: 1.0
 Keywords only: 0.9769379376962086
 Difference: 0.023062062303791375
-python3 analyzers/regression.py kmeans_10topics_spacy_nouns centroid_spread
+
+# python3 analyzers/regression.py kmeans_10topics_spacy_nouns centroid_spread
 Analyzing kmeans_10topics_spacy_nouns on centroid_spread
 Original: 1.0
 Keywords only: 0.992513885534895
 Difference: 0.007486114465105054
-python3 analyzers/regression.py kmeans_10topics_median_word_length centroid_spread
+
+# python3 analyzers/regression.py kmeans_10topics_median_word_length centroid_spread
 Analyzing kmeans_10topics_median_word_length on centroid_spread
 Original: 1.0
 Keywords only: 0.9942042984786283
 Difference: 0.0057957015213716545
-python3 analyzers/regression.py kmeans_10topics_simple intracluster_proportion
+
+# python3 analyzers/regression.py kmeans_10topics_simple intracluster_proportion
 Analyzing kmeans_10topics_simple on intracluster_proportion
 Original: 1.0
 Keywords only: 0.9816469451823231
 Difference: 0.018353054817676906
-python3 analyzers/regression.py kmeans_10topics_no_stopwords intracluster_proportion
+
+# python3 analyzers/regression.py kmeans_10topics_no_stopwords intracluster_proportion
 Analyzing kmeans_10topics_no_stopwords on intracluster_proportion
 Original: 1.0
 Keywords only: 0.9775416566046848
 Difference: 0.02245834339531516
-python3 analyzers/regression.py kmeans_10topics_spacy_nouns intracluster_proportion
+
+# python3 analyzers/regression.py kmeans_10topics_spacy_nouns intracluster_proportion
 Analyzing kmeans_10topics_spacy_nouns on intracluster_proportion
 Original: 1.0
 Keywords only: 0.988046365612171
 Difference: 0.011953634387829037
-python3 analyzers/regression.py kmeans_10topics_median_word_length intracluster_proportion
+
+# python3 analyzers/regression.py kmeans_10topics_median_word_length intracluster_proportion
 Analyzing kmeans_10topics_median_word_length on intracluster_proportion
 Original: 1.0
 Keywords only: 0.9934798357884569
