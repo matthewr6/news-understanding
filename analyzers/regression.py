@@ -80,7 +80,7 @@ X_keywords = vectorizer.transform(stripped_data)
 
 iters = 5
 # set up classifiers
-lr = LogisticRegression(multi_class='auto', solver='lbfgs', max_iter=5000)
+lr = LogisticRegression(multi_class='auto', solver='lbfgs', max_iter=10000)
 lr.fit(X_base, y)
 y_hat = lr.predict(X_base)
 y_hat_2 = lr.predict(X_keywords)
