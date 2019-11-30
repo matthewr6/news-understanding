@@ -31,7 +31,8 @@ def log_reg_topics(groupings):
     logreg.fit(df, list(topics.keys()))
     print('Trained Classifier')
 
-    weights = abs(logreg.coef_)
+    # weights = abs(logreg.coef_)
+    weights = logreg.coef_
     for index, label, in enumerate(topics.keys()):
         ind = np.argpartition(weights[index], -top_n_words)[-top_n_words:]
         kw = []

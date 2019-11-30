@@ -24,28 +24,28 @@ overall score - keywords score -0.0056514833366753114
 standard deviation difference 0.004571526565449891
 
 # kmeans_8topics_simple log_reg
-featurized data 0.9727588023845101
-keywords only 0.979932612332957
-overall score - keywords score -0.007173809948446963
-standard deviation difference 0.004807871201700042
+featurized data 0.971455936836179
+keywords only 0.9783398629978357
+overall score - keywords score -0.006883926161656673
+standard deviation difference 0.004558094897283556
 
 # kmeans_8topics_no_stopwords log_reg
-featurized data 0.9679516460305857
-keywords only 0.9781924066271499
-overall score - keywords score -0.010240760596564202
-standard deviation difference 0.005721812390427126
+featurized data 0.9687989719305962
+keywords only 0.9777343752004991
+overall score - keywords score -0.008935403269902942
+standard deviation difference 0.004894028915621177
 
 # kmeans_8topics_spacy_nouns log_reg
-featurized data 0.9786286989490818
-keywords only 0.9881193077019208
-overall score - keywords score -0.009490608752839025
-standard deviation difference 0.003839635719671513
+featurized data 0.9785072998098685
+keywords only 0.9870321459192688
+overall score - keywords score -0.008524846109400297
+standard deviation difference 0.003999155390998773
 
 # kmeans_8topics_median_word_length log_reg
-featurized data 0.9746670232870089
-keywords only 0.9811151736554292
-overall score - keywords score -0.00644815036842028
-standard deviation difference 0.0047376698105314205
+featurized data 0.9746919934691739
+keywords only 0.9805355927009778
+overall score - keywords score -0.0058435992318038865
+standard deviation difference 0.004262892786492936
 
 # kmeans_8topics_simple centroid_spread
 featurized data 0.9724949075052907
