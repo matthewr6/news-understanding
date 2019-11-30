@@ -91,4 +91,4 @@ keyword_acc = np.sum(y_hat_2 == y) / len(y)
 print(acc)
 print(keyword_acc)
 print(acc - keyword_acc)
-print(keyword_acc * (1 - keyword_acc))
+
