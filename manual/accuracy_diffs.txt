@@ -1,0 +1,31 @@
+
+python3 analyzers/regression.py kmeans_10topics_spacy_nouns raw_count
+Analyzing kmeans_10topics_spacy_nouns on raw_count
+Original: 1.0
+Keywords only: 0.9852692586331804
+Difference: 0.014730741366819622
+
+python3 analyzers/regression.py kmeans_10topics_median_word_length raw_count
+Analyzing kmeans_10topics_median_word_length on raw_count
+Original: 1.0
+Keywords only: 0.9916686790630282
+Difference: 0.008331320936971753
+
+python3 analyzers/regression.py kmeans_10topics_median_word_length log_reg
+Analyzing kmeans_10topics_median_word_length on log_reg
+Trained Classifier
+Original: 1.0
+Keywords only: 0.9933590920067616
+Difference: 0.006640907993238354
+
+python3 analyzers/regression.py kmeans_10topics_median_word_length centroid_spread
+Analyzing kmeans_10topics_median_word_length on centroid_spread
+Original: 1.0
+Keywords only: 0.9942042984786283
+Difference: 0.0057957015213716545
+
+python3 analyzers/regression.py kmeans_10topics_median_word_length intracluster_proportion
+Analyzing kmeans_10topics_median_word_length on intracluster_proportion
+Original: 1.0
+Keywords only: 0.9934798357884569
+Difference: 0.006520164211543111

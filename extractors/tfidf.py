@@ -43,7 +43,7 @@ def tfidf_topics(groupings):
         doc=topics_input[i]
         tf_idf_vector=tfidf_transformer.transform(cv.transform([doc]))
         sorted_items=sort_coo(tf_idf_vector.tocoo())
-        keywords=extract_topn_from_vector(feature_names,sorted_items,10)
+        keywords=extract_topn_from_vector(feature_names,sorted_items)
         cluster_words[labels[i]] = list(keywords.keys())
         all_key_words += list(keywords.keys())
     return (set(all_key_words), cluster_words)
