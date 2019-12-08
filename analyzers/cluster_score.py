@@ -35,19 +35,19 @@ topic_extractor = None
 base_path = dirname(__file__)
 model_name = os.path.basename(__file__).split('.')[0]
 
-if len(sys.argv) < 3 or sys.argv[2] not in topic_extractors:
+if len(sys.argv) < 2:# or sys.argv[2] not in topic_extractors:
     print('python3 regression.py [model] [topic extractor]')
     print('Model options:')
     for path in glob.glob(join(base_path, '../models/*.py')):
         print(os.path.basename(path).split('.')[0])
-    print('\nTopic extractors:')
-    for path in glob.glob(join(base_path, '../extractors/*.py')):
-        print(os.path.basename(path).split('.')[0])
+    # print('\nTopic extractors:')
+    # for path in glob.glob(join(base_path, '../extractors/*.py')):
+    #     print(os.path.basename(path).split('.')[0])
     # list models
     sys.exit()
 
 model_name = sys.argv[1]
-topic_extractor = topic_extractors[sys.argv[2]]
+# topic_extractor = topic_extractors[sys.argv[2]]
 
 y = []
 X = []
@@ -65,13 +65,13 @@ def intersect(input_text, topics):
     return [i for i in input_text if i in topics]
 
 
-print('Original score:', score_func(X, y))
+print(score_func(X, y))
 
 # how relevant is this
-topics, cluster_topics = topic_extractor(clusters)
-X_keywords = []
-for label in clusters:
-    X_keywords += [' '.join(intersect(l, topics)) for l in clusters[label]]
+# topics, cluster_topics = topic_extractor(clusters)
+# X_keywords = []
+# for label in clusters:
+#     X_keywords += [' '.join(intersect(l, topics)) for l in clusters[label]]
 
-X_keywords = vectorizer.transform(X_keywords).toarray()
-print('Keyword-only score:', score_func(X_keywords, y))
+# X_keywords = vectorizer.transform(X_keywords).toarray()
+# print('Keyword-only score:', score_func(X_keywords, y))

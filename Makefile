@@ -132,6 +132,12 @@ analyze/exp10:
 	python3 analyzers/regression.py kmeans_10topics_spacy_nouns intracluster_proportion
 	python3 analyzers/regression.py kmeans_10topics_median_word_length intracluster_proportion
 
+clusterscore/kmeans10:
+	python3 analyzers/cluster_score.py kmeans_10topics_simple
+	python3 analyzers/cluster_score.py kmeans_10topics_no_stopwords
+	python3 analyzers/cluster_score.py kmeans_10topics_spacy_nouns
+	python3 analyzers/cluster_score.py kmeans_10topics_median_word_length
+
 clusterscore/exp10:
 	python3 analyzers/cluster_score.py kmeans_10topics_simple raw_count
 	python3 analyzers/cluster_score.py kmeans_10topics_no_stopwords raw_count
@@ -176,10 +182,20 @@ clusterscore/exp12:
 
 
 clusterscore/clusternums:
-	python3 analyzers/cluster_score.py kmeans_8topics_median_word_length raw_count
-	python3 analyzers/cluster_score.py kmeans_10topics_median_word_length raw_count
-	python3 analyzers/cluster_score.py kmeans_12topics_median_word_length raw_count
-	python3 analyzers/cluster_score.py kmeans_15topics_median_word_length raw_count
+	python3 analyzers/cluster_score.py kmeans_8topics_simple
+	python3 analyzers/cluster_score.py kmeans_8topics_no_stopwords
+	python3 analyzers/cluster_score.py kmeans_8topics_spacy_nouns
+	python3 analyzers/cluster_score.py kmeans_8topics_median_word_length
+	@echo ""
+	python3 analyzers/cluster_score.py kmeans_10topics_simple
+	python3 analyzers/cluster_score.py kmeans_10topics_no_stopwords
+	python3 analyzers/cluster_score.py kmeans_10topics_spacy_nouns
+	python3 analyzers/cluster_score.py kmeans_10topics_median_word_length
+	@echo ""
+	python3 analyzers/cluster_score.py kmeans_12topics_simple
+	python3 analyzers/cluster_score.py kmeans_12topics_no_stopwords
+	python3 analyzers/cluster_score.py kmeans_12topics_spacy_nouns
+	python3 analyzers/cluster_score.py kmeans_12topics_median_word_length
 
 
 
