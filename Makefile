@@ -131,6 +131,10 @@ analyze/exp10:
 	python3 analyzers/regression.py kmeans_10topics_no_stopwords intracluster_proportion
 	python3 analyzers/regression.py kmeans_10topics_spacy_nouns intracluster_proportion
 	python3 analyzers/regression.py kmeans_10topics_median_word_length intracluster_proportion
+	python3 analyzers/regression.py kmeans_10topics_simple tfidf
+	python3 analyzers/regression.py kmeans_10topics_no_stopwords tfidf
+	python3 analyzers/regression.py kmeans_10topics_spacy_nouns tfidf
+	python3 analyzers/regression.py kmeans_10topics_median_word_length tfidf
 
 clusterscore/kmeans10:
 	python3 analyzers/cluster_score.py kmeans_10topics_simple
@@ -287,6 +291,10 @@ group/all10:
 	python3 analyzers/group.py kmeans_10topics_no_stopwords intracluster_proportion
 	python3 analyzers/group.py kmeans_10topics_spacy_nouns intracluster_proportion
 	python3 analyzers/group.py kmeans_10topics_median_word_length intracluster_proportion
+	python3 analyzers/group.py kmeans_10topics_simple tfidf
+	python3 analyzers/group.py kmeans_10topics_no_stopwords tfidf
+	python3 analyzers/group.py kmeans_10topics_spacy_nouns tfidf
+	python3 analyzers/group.py kmeans_10topics_median_word_length tfidf
 
 group/%:
 	python3 analyzers/group.py $* $(extractor)
