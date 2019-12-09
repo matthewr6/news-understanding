@@ -8,7 +8,8 @@ import matplotlib.pyplot as plt
 from os.path import join, dirname, isfile
 base_path = dirname(__file__)
 
-with open(join(base_path, 'clusterscores.json'), 'rb') as f:
+fname = 'clusterscores'
+with open(join(base_path, f'{fname}.json'), 'rb') as f:
     data = json.load(f)
 
 new_data = {}
@@ -43,4 +44,4 @@ plt.ylim(0, 7)
 # plt.legend(bbox_to_anchor=(1.04,0.65), loc="upper left", borderaxespad=0)
 plt.legend(ncol=2)
 
-plt.savefig(join(base_path, 'cluster_scores.png'), bbox_inches="tight")
+plt.savefig(join(base_path, f'{fname}.png'), bbox_inches="tight")
