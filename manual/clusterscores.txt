@@ -1,0 +1,26 @@
+python3 analyzers/cluster_score.py kmeans_8topics_simple
+4.928988865781962
+python3 analyzers/cluster_score.py kmeans_8topics_no_stopwords
+5.473067532133598
+python3 analyzers/cluster_score.py kmeans_8topics_spacy_nouns
+4.18460681428429
+python3 analyzers/cluster_score.py kmeans_8topics_median_word_length
+5.254823684546761
+
+python3 analyzers/cluster_score.py kmeans_10topics_simple
+5.208918377311114
+python3 analyzers/cluster_score.py kmeans_10topics_no_stopwords
+5.052170663722811
+python3 analyzers/cluster_score.py kmeans_10topics_spacy_nouns
+4.57426399880761
+python3 analyzers/cluster_score.py kmeans_10topics_median_word_length
+4.822127393429521
+
+python3 analyzers/cluster_score.py kmeans_12topics_simple
+5.195913007001621
+python3 analyzers/cluster_score.py kmeans_12topics_no_stopwords
+5.326163926660544
+python3 analyzers/cluster_score.py kmeans_12topics_spacy_nouns
+4.6524529618856905
+python3 analyzers/cluster_score.py kmeans_12topics_median_word_length
+4.368896297104269

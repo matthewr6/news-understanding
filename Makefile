@@ -227,7 +227,11 @@ visualize/kmeans12:
 	python3 analyzers/visualize.py kmeans_12topics_spacy_nouns
 	python3 analyzers/visualize.py kmeans_12topics_no_stopwords
 
-
+visualize/kmeans8:
+	python3 analyzers/visualize.py kmeans_8topics_median_word_length
+	python3 analyzers/visualize.py kmeans_8topics_simple
+	python3 analyzers/visualize.py kmeans_8topics_spacy_nouns
+	python3 analyzers/visualize.py kmeans_8topics_no_stopwords
 
 visualize/all:
 	python3 analyzers/visualize.py kmeans_10topics_simple
