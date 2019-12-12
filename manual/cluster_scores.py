@@ -36,7 +36,7 @@ colors = ['#9ED5CD', '#44A7CB', '#2E62A1', '#192574']
 for idx, o in enumerate(order):
     plt.bar(rs[idx], new_data[o], color=colors[idx], width=barWidth, edgecolor='white', label=o)
 
-plt.xlabel('Featurizer', fontweight='bold')
+plt.xlabel('K', fontweight='bold')
 plt.xticks([r + (barWidth * 1.5) for r in range(len(new_data['Simple']))], ks)
 
 plt.ylim(0, 7)
